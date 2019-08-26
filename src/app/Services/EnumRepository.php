@@ -13,7 +13,13 @@ class EnumRepository
 
     public function register($enums)
     {
-        $this->enums = $this->enums->merge($enums);
+        collect($enums)->each(function ($enum, $key) {
+            if (is_array($enum)) {
+                $this->enums[$key] = $enum;
+            } else {
+                $this->enums[$key] = $enum::all();
+            }
+        });
     }
 
     public function all()
