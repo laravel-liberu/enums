@@ -10,6 +10,12 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Reza Fouladi",
+            "email": "raftx24@gmail.com",
+            "homepage": "https://laravel-enso.com",
+            "role": "Developer"
+        },
+        {
             "name": "Adrian Ocneanu",
             "email": "aocneanu@gmail.com",
             "homepage": "https://laravel-enso.com",
@@ -31,7 +37,7 @@
                 "LaravelEnso\\Enums\\EnumServiceProvider"
             ],
             "aliases": {
-                "EnumRepository": "LaravelEnso\\Enums\\app\\Facades\\EnumRepository"
+                "Enums": "LaravelEnso\\Enums\\app\\Facades\\Enums"
             }
         }
     }

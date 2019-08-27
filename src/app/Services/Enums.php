@@ -2,7 +2,7 @@
 
 namespace LaravelEnso\Enums\app\Services;
 
-class EnumRepository
+class Enums
 {
     private $enums;
 
@@ -14,11 +14,9 @@ class EnumRepository
     public function register($enums)
     {
         collect($enums)->each(function ($enum, $key) {
-            if (is_array($enum)) {
-                $this->enums[$key] = $enum;
-            } else {
-                $this->enums[$key] = $enum::all();
-            }
+            $array = is_array($enum) ? $enum : $enum::all();
+
+            $this->enums->put($key, $array);
         });
     }
 

@@ -4,10 +4,10 @@ namespace LaravelEnso\Enums\app\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class EnumRepository extends Facade
+class Enums extends Facade
 {
     public static function getFacadeAccessor()
     {
-        return 'enum_repository';
+        return 'enums';
     }
 }

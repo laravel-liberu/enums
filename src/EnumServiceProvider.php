@@ -3,7 +3,7 @@
 namespace LaravelEnso\Enums;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelEnso\Enums\app\Facades\EnumRepository;
+use LaravelEnso\Enums\app\Facades\Enums;
 
 class EnumServiceProvider extends ServiceProvider
 {
@@ -11,6 +11,6 @@ class EnumServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        EnumRepository::register($this->register);
+        Enums::register($this->register);
     }
 }
