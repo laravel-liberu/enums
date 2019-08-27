@@ -20,6 +20,13 @@ class Enums
         });
     }
 
+    public function remove($aliases)
+    {
+        collect($aliases)->each(function ($alias) {
+            $this->enums->forget($alias);
+        });
+    }
+
     public function all()
     {
         return $this->enums;
