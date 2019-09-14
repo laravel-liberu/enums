@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Enums\app\Classes;
+namespace LaravelEnso\Enums\app\Services;
 
 use ReflectionClass;
 
