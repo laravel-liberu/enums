@@ -7,29 +7,24 @@ use ReflectionClass;
 class Enum
 {
     protected static $data;
-
     protected static $localisation = true;
 
     protected static function attributes()
     {
-        //
+        return null;
     }
 
     public static function constants()
     {
-        $constants = array_flip(
+        return array_flip(
             (new ReflectionClass(static::class))
                 ->getConstants()
         );
-
-        return count($constants)
-            ? $constants
-            : null;
     }
 
     public static function get($key)
     {
-        return self::data($key);
+        return self::data()->get($key);
     }
 
     public static function has($key)
@@ -47,19 +42,19 @@ class Enum
         return self::data()->values();
     }
 
-    public static function all()
-    {
-        return self::source();
-    }
-
     public static function json()
     {
-        return json_encode(self::array());
+        return self::data()->toJson();
     }
 
     public static function array()
     {
         return self::data()->toArray();
+    }
+
+    public static function all()
+    {
+        return self::array();
     }
 
     public static function object()
@@ -74,22 +69,19 @@ class Enum
 
     public static function select()
     {
-        return collect(self::data())->map(function ($value, $key) {
+        return self::data()->map(function ($value, $key) {
             return (object) ['id' => $key, 'name' => $value];
         })->values();
     }
 
-    private static function data($key = null)
+    public static function localisation($state = true)
     {
-        $data = self::source();
+        self::$localisation = $state;
+    }
 
-        if ($key === null) {
-            return static::transAll($data);
-        }
-
-        return isset($data[$key])
-            ? static::trans($data[$key])
-            : null;
+    private static function data()
+    {
+        return self::transAll(self::source());
     }
 
     private static function source()
@@ -111,10 +103,5 @@ class Enum
         return is_string($value) && self::$localisation
             ? __($value)
             : $value;
-    }
-
-    public static function localisation($state = true)
-    {
-        self::$localisation = $state;
     }
 }
