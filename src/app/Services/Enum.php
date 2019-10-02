@@ -11,7 +11,6 @@ class Enum
 
     protected static function attributes()
     {
-        return null;
     }
 
     public static function constants()
