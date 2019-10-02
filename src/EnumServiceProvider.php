@@ -7,7 +7,7 @@ use LaravelEnso\Enums\app\Facades\Enums;
 
 class EnumServiceProvider extends ServiceProvider
 {
-    protected $register = [];
+    public $register = [];
 
     public function boot()
     {
