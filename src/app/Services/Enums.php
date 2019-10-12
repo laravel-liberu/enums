@@ -15,7 +15,6 @@ class Enums
     {
         collect($enums)->each(function ($enum, $key) {
             $array = is_array($enum) ? $enum : $enum::all();
-
             $this->enums->put($key, $array);
         });
     }
