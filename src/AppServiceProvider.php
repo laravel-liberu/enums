@@ -3,7 +3,7 @@
 namespace LaravelEnso\Enums;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelEnso\Enums\app\Services\Enums;
+use LaravelEnso\Enums\App\Services\Enums;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../stubs/EnumServiceProvider.stub' => app_path('Providers/EnumServiceProvider.php'),
+            __DIR__.'/../stubs/EnumServiceProvider.stub' => app_path(
+                'Providers/EnumServiceProvider.php'
+            ),
         ], 'enum-provider');
     }
 }

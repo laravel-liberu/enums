@@ -1,6 +1,8 @@
 <?php
 
-namespace LaravelEnso\Enums\app\Services;
+namespace LaravelEnso\Enums\App\Services;
+
+use Illuminate\Support\Collection;
 
 class Enums
 {
@@ -8,15 +10,14 @@ class Enums
 
     public function __construct()
     {
-        $this->enums = collect();
+        $this->enums = new Collection();
     }
 
     public function register($enums)
     {
-        collect($enums)->each(function ($enum, $key) {
-            $array = is_array($enum) ? $enum : $enum::all();
-            $this->enums->put($key, $array);
-        });
+        (new Collection($enums))->each(fn ($enum, $key) => $this->enums->put(
+            $key, is_array($enum) ? $enum : $enum::all()
+        ));
     }
 
     public function remove($aliases)

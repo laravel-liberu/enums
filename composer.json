@@ -23,6 +23,7 @@
         }
     ],
     "require": {
+        "laravel/framework": "^6.0",
         "php": ">=7.4.0"
     },
     "autoload": {
@@ -37,7 +38,7 @@
                 "LaravelEnso\\Enums\\EnumServiceProvider"
             ],
             "aliases": {
-                "Enums": "LaravelEnso\\Enums\\app\\Facades\\Enums"
+                "Enums": "LaravelEnso\\Enums\\App\\Facades\\Enums"
             }
         }
     }

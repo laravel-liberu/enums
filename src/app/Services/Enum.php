@@ -1,19 +1,17 @@
 <?php
 
-namespace LaravelEnso\Enums\app\Services;
+namespace LaravelEnso\Enums\App\Services;
 
+use Illuminate\Support\Collection;
 use ReflectionClass;
 
 class Enum
 {
-    protected static $data;
-    protected static $localisation = true;
+    protected static array $data;
 
-    protected static function attributes()
-    {
-    }
+    protected static bool $localisation = true;
 
-    public static function constants()
+    public static function constants(): array
     {
         return array_flip(
             (new ReflectionClass(static::class))
@@ -23,76 +21,87 @@ class Enum
 
     public static function get($key)
     {
-        return self::data()->get($key);
+        return self::attributes()->get($key);
     }
 
-    public static function has($key)
+    public static function has($key): bool
     {
-        return self::data()->has($key);
+        return self::attributes()->has($key);
     }
 
-    public static function keys()
+    public static function keys(): Collection
     {
-        return self::data()->keys();
+        return self::attributes()->keys();
     }
 
-    public static function values()
+    public static function values(): Collection
     {
-        return self::data()->values();
+        return self::attributes()->values();
     }
 
-    public static function json()
+    public static function json(): string
     {
-        return self::data()->toJson();
+        return self::attributes()->toJson();
     }
 
-    public static function array()
+    public static function array(): array
     {
-        return self::data()->toArray();
+        return self::attributes()->toArray();
     }
 
-    public static function all()
+    public static function all(): array
     {
         return self::array();
     }
 
-    public static function object()
+    public static function object(): object
     {
         return (object) self::array();
     }
 
-    public static function collection()
+    public static function collection(): Collection
     {
-        return self::data();
+        return self::attributes();
     }
 
-    public static function select()
+    public static function select(): Collection
     {
-        return self::data()->map(fn ($value, $key) => (
-            (object) ['id' => $key, 'name' => $value]
-        ))->values();
+        return self::attributes()
+            ->map(fn ($value, $key) => (object) ['id' => $key, 'name' => $value])
+            ->values();
     }
 
-    public static function localisation($state = true)
+    public static function localisation($state = true): void
     {
         self::$localisation = $state;
     }
 
-    private static function data()
+    protected static function data(): array
+    {
+        return [];
+    }
+
+    private static function attributes(): Collection
     {
         return self::transAll(self::source());
     }
 
-    private static function source()
+    private static function source(): array
     {
-        return static::$data
-            ?? static::attributes()
-            ?? static::constants();
+        if (isset(static::$data)) {
+            return static::$data;
+        }
+
+        if (! empty(static::data())) {
+            return static::data();
+        }
+
+        return static::constants();
     }
 
-    private static function transAll($data)
+    private static function transAll($data): Collection
     {
-        return collect($data)->map(fn ($value) => self::trans($value));
+        return (new Collection($data))->map(fn ($value) => self::trans($value));
     }
 
     private static function trans($value)
