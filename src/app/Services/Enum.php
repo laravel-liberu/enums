@@ -68,7 +68,7 @@ class Enum
 
     public static function select()
     {
-        return self::data()->map(fn($value, $key) => (
+        return self::data()->map(fn ($value, $key) => (
             (object) ['id' => $key, 'name' => $value]
         ))->values();
     }
@@ -92,7 +92,7 @@ class Enum
 
     private static function transAll($data)
     {
-        return collect($data)->map(fn($value) => self::trans($value));
+        return collect($data)->map(fn ($value) => self::trans($value));
     }
 
     private static function trans($value)
