@@ -22,7 +22,7 @@ class Enums
 
     public function remove($aliases)
     {
-        collect($aliases)->each(fn ($alias) => $this->enums->forget($alias));
+        (new Collection($aliases))->each(fn ($alias) => $this->enums->forget($alias));
     }
 
     public function all()
