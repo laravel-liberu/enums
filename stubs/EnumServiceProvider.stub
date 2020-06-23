@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use LaravelEnso\Searchable\SearchServiceProvider as ServiceProvider;
+use LaravelEnso\Enums\EnumServiceProvider as ServiceProvider;
 
 class EnumServiceProvider extends ServiceProvider
 {
