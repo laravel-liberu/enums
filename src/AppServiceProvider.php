@@ -3,7 +3,7 @@
 namespace LaravelEnso\Enums;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelEnso\Enums\App\Services\Enums;
+use LaravelEnso\Enums\Services\Enums;
 
 class AppServiceProvider extends ServiceProvider
 {

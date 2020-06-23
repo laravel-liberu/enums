@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Enums\App\Services;
+namespace LaravelEnso\Enums\Services;
 
 use Illuminate\Support\Collection;
 use ReflectionClass;

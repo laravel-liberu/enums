@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Enums\App\Services;
+namespace LaravelEnso\Enums\Services;
 
 use Illuminate\Support\Collection;
 
@@ -16,7 +16,8 @@ class Enums
     public function register($enums)
     {
         (new Collection($enums))->each(fn ($enum, $key) => $this->enums->put(
-            $key, is_array($enum) ? $enum : $enum::all()
+            $key,
+            is_array($enum) ? $enum : $enum::all()
         ));
     }
 

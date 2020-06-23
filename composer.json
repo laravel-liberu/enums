@@ -8,8 +8,7 @@
     "homepage": "https://github.com/laravel-enso/enums",
     "type": "library",
     "license": "MIT",
-    "authors": [
-        {
+    "authors": [{
             "name": "Reza Fouladi",
             "email": "raftx24@gmail.com",
             "homepage": "https://laravel-enso.com",
@@ -38,7 +37,7 @@
                 "LaravelEnso\\Enums\\EnumServiceProvider"
             ],
             "aliases": {
-                "Enums": "LaravelEnso\\Enums\\App\\Facades\\Enums"
+                "Enums": "LaravelEnso\\Enums\\Facades\\Enums"
             }
         }
     }
