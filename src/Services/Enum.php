@@ -79,7 +79,7 @@ class Enum
 
     public static function localisation($state = true, $all = true): void
     {
-        if($all) {
+        if ($all) {
             self::$localisation = $state;
         } else {
             static::$localisation = $state;
@@ -116,8 +116,8 @@ class Enum
 
     private static function trans($value)
     {
-        \Log::debug('static '. static::$localisation);
-        \Log::debug('self '. self::$localisation);
+        \Log::debug('static '.static::$localisation);
+        \Log::debug('self '.self::$localisation);
 
         return is_string($value) && static::$localisation
             ? __($value)
