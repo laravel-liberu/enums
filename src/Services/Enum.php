@@ -78,7 +78,7 @@ class Enum
 
     public static function localisation(bool $state = true, bool $global = true): void
     {
-        if($global) {
+        if ($global) {
             self::$localisation = $state;
         } else {
             static::$localisation = $state;
