@@ -14,10 +14,20 @@ class Enum
 
     public static function constants(): array
     {
-        return array_flip(
-            (new ReflectionClass(static::class))
-                ->getConstants()
-        );
+        $reflection = new ReflectionClass(static::class);
+
+        $filter = fn ($constant) => is_string($constant) || is_numeric($constant);
+
+        $valid = array_filter($reflection->getConstants(), $filter);
+
+        $constants = array_flip($valid);
+
+        $filter = fn ($constant) => $reflection
+            ->getReflectionConstant($constant)->isPublic();
+
+        $public = array_filter($constants, $filter);
+
+        return $public;
     }
 
     public static function get($key)
