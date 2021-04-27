@@ -86,11 +86,6 @@ class Enum
             ->values();
     }
 
-    public static function xxx()
-    {
-        return static::$localisation;
-    }
-
     public static function localisation(bool $state = true): void
     {
         static::$localisation = $state;

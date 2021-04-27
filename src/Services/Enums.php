@@ -18,9 +18,6 @@ class Enums
     {
         Collection::wrap($enums)
             ->each(fn ($enum, $key) => $this->enums->put($key, $enum));
-
-        Collection::wrap($enums)->each(fn ($enum, $key) => $this->enums
-            ->put($key, is_array($enum) ? $enum : App::make($enum)::all()));
     }
 
     public function remove($aliases)
@@ -31,16 +28,15 @@ class Enums
 
     public function all()
     {
-        $map = fn ($enum) => is_array($enum)
-            ? $enum
-            : App::make($enum)::all();
+        return $this->enums->map(fn ($enum) => is_array($enum) ? $enum : $this->map($enum));
+    }
 
-        Enum::localisation(false);
+    private function map(string $enum)
+    {
+        $enum::localisation(false);
+        $all = App::make($enum)::all();
+        $enum::localisation(true);
 
-        $this->enums->transform($map);
-
-        Enum::localisation(true);
-
-        return $this->enums;
+        return $all;
     }
 }
