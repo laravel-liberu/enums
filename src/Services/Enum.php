@@ -86,13 +86,14 @@ class Enum
             ->values();
     }
 
-    public static function localisation(bool $state = true, bool $global = true): void
+    public static function xxx()
     {
-        if ($global) {
-            self::$localisation = $state;
-        } else {
-            static::$localisation = $state;
-        }
+        return static::$localisation;
+    }
+
+    public static function localisation(bool $state = true): void
+    {
+        static::$localisation = $state;
     }
 
     protected static function data(): array

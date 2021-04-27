@@ -16,6 +16,9 @@ class Enums
 
     public function register($enums)
     {
+        Collection::wrap($enums)
+            ->each(fn ($enum, $key) => $this->enums->put($key, $enum));
+
         Collection::wrap($enums)->each(fn ($enum, $key) => $this->enums
             ->put($key, is_array($enum) ? $enum : App::make($enum)::all()));
     }
@@ -28,6 +31,16 @@ class Enums
 
     public function all()
     {
+        $map = fn ($enum) => is_array($enum)
+            ? $enum
+            : App::make($enum)::all();
+
+        Enum::localisation(false);
+
+        $this->enums->transform($map);
+
+        Enum::localisation(true);
+
         return $this->enums;
     }
 }
