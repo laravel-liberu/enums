@@ -116,7 +116,7 @@ class Enum
 
     private static function transAll($data): Collection
     {
-        return (new Collection($data))->map(fn ($value) => self::trans($value));
+        return Collection::wrap($data)->map(fn ($value) => self::trans($value));
     }
 
     private static function trans($value)
