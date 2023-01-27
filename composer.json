@@ -1,23 +1,23 @@
 {
-    "name": "laravel-enso/enums",
+    "name": "cgdsoftware/enums",
     "description": "Enums for Laravel Enso",
     "keywords": [
-        "laravel-enso",
+        "cgdsoftware",
         "enums"
     ],
-    "homepage": "https://github.com/laravel-enso/enums",
+    "homepage": "https://github.com/cgdsoftware/enums",
     "type": "library",
     "license": "MIT",
     "authors": [{
             "name": "Reza Fouladi",
             "email": "raftx24@gmail.com",
-            "homepage": "https://laravel-enso.com",
+            "homepage": "https://cgdsoftware.com",
             "role": "Developer"
         },
         {
             "name": "Adrian Ocneanu",
             "email": "aocneanu@gmail.com",
-            "homepage": "https://laravel-enso.com",
+            "homepage": "https://cgdsoftware.com",
             "role": "Developer"
         }
     ],
