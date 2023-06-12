@@ -107,11 +107,7 @@ class Enum
             return static::data();
         }
 
-        if (isset(static::$data)) {
-            return static::$data;
-        }
-
-        return static::constants();
+        return static::$data ?? static::constants();
     }
 
     private static function transAll($data): Collection

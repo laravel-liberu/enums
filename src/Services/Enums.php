@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\App;
 
 class Enums
 {
-    private $enums;
+    private readonly \Illuminate\Support\Collection $enums;
 
     public function __construct()
     {

@@ -40,5 +40,8 @@
                 "Enums": "LaravelEnso\\Enums\\Facades\\Enums"
             }
         }
+    },
+    "require-dev": {
+        "rector/rector": "^0.17.0"
     }
 }
