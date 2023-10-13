@@ -27,17 +27,17 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelEnso\\Enums\\": "src/"
+            "LaravelLiberu\\Enums\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelEnso\\Enums\\AppServiceProvider",
-                "LaravelEnso\\Enums\\EnumServiceProvider"
+                "LaravelLiberu\\Enums\\AppServiceProvider",
+                "LaravelLiberu\\Enums\\EnumServiceProvider"
             ],
             "aliases": {
-                "Enums": "LaravelEnso\\Enums\\Facades\\Enums"
+                "Enums": "LaravelLiberu\\Enums\\Facades\\Enums"
             }
         }
     },

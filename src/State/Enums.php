@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelEnso\Enums\State;
+namespace LaravelLiberu\Enums\State;
 
-use LaravelEnso\Core\Contracts\ProvidesState;
-use LaravelEnso\Enums\Facades\Enums as Facade;
+use LaravelLiberu\Core\Contracts\ProvidesState;
+use LaravelLiberu\Enums\Facades\Enums as Facade;
 
 class Enums implements ProvidesState
 {

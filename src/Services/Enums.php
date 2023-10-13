@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Enums\Services;
+namespace LaravelLiberu\Enums\Services;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Enums\Facades;
+namespace LaravelLiberu\Enums\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

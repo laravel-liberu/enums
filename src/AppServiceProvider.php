@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelEnso\Enums;
+namespace LaravelLiberu\Enums;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelEnso\Enums\Services\Enums;
+use LaravelLiberu\Enums\Services\Enums;
 
 class AppServiceProvider extends ServiceProvider
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelEnso\Enums\Services;
+namespace LaravelLiberu\Enums\Services;
 
 use Illuminate\Support\Collection;
-use LaravelEnso\Enums\Exceptions\Enum as Exception;
+use LaravelLiberu\Enums\Exceptions\Enum as Exception;
 use ReflectionClass;
 
 class Enum
